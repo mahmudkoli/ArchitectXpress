@@ -1,0 +1,6 @@
+@ArchitectXpress_HostAddress = http://localhost:5127
+
+GET {{ArchitectXpress_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

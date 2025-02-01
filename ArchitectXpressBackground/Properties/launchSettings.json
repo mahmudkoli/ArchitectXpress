@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ArchitectXpressBackground": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
