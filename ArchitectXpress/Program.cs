@@ -1,7 +1,6 @@
 using ArchitectXpress.Caching;
 using ArchitectXpress.Mongos;
 using ArchitectXpress.RabbitMQ;
-using Microsoft.Extensions.Configuration;
 using MongoDB.Bson.Serialization.Conventions;
 
 var builder = WebApplication.CreateBuilder(args);
