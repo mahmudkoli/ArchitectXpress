@@ -1,4 +1,4 @@
-﻿using ArchitectXpress.Models;
+﻿using Archexpress.Demo.Passenger.Database;
 using MassTransit;
 using Microsoft.Extensions.Options;
 
@@ -16,7 +16,9 @@ public static class MassTransitExtensions
 
                 cfg.Host(rabbitMqSettings.Host);
 
-                cfg.Message<PassengerInfoEvent>(e => e.SetEntityName(rabbitMqSettings.ExchangeName));
+                cfg.UseRawJsonSerializer(RawSerializerOptions.All, isDefault: true);
+
+                cfg.Message<Passenger>(e => e.SetEntityName(rabbitMqSettings.ExchangeName));
             });
         });
 

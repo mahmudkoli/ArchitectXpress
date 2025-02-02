@@ -27,9 +27,7 @@ builder.Services.AddStackExchangeRedisCache(options =>
     options.ConfigurationOptions = new StackExchange.Redis.ConfigurationOptions()
     {
         AbortOnConnectFail = true,
-        EndPoints = { cacheOptions.RedisURL },
-        User = cacheOptions.Username,
-        Password = cacheOptions.Password
+        EndPoints = { cacheOptions.RedisURL }
     };
 });
 

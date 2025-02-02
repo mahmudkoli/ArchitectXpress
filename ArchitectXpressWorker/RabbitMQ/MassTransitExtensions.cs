@@ -20,8 +20,11 @@ public static class MassTransitExtensions
 
                 cfg.Host(rabbitMqSettings.Host);
 
+                cfg.UseRawJsonDeserializer(RawSerializerOptions.All, isDefault: true);
+
                 cfg.ReceiveEndpoint(rabbitMqSettings.QueueName, e =>
                 {
+                    e.ConfigureConsumeTopology = false;
                     e.Bind(rabbitMqSettings.ExchangeName);
                     e.ConfigureConsumer<PassengerAddedEventHandler>(ctx);
                 });
