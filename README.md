@@ -1,11 +1,16 @@
 For node js apps:
+
   Install and run apps:
+  
   1. install node modules: npm install
   2. run apps: node src/server.js
 
 Publish the message using node js:
+
   post url: http://localhost:3000/passenger/publish
+  
   request body:
+  
   {
     "id": "123",
     "firstName": "John",
@@ -23,8 +28,11 @@ Publish the message using node js:
   }
 
 Publish the message using dotnet:
+
   post url: http://localhost:5000/passenger
+  
   request body:
+  
   {
   "id": "123",
   "firstName": "John",
@@ -44,4 +52,5 @@ Publish the message using dotnet:
 }
 
 Get the messages:
+
  get url: http://localhost:5000/Passenger
