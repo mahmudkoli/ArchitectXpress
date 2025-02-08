@@ -10,7 +10,7 @@ namespace ArchitectXpressWorker.EventHandlers
     using MassTransit;
     using System.Threading.Tasks;
 
-    public class CalculateFareConsumer : IConsumer<CalculateFareCommand>
+    public class CalculateFareEventHandler : IConsumer<CalculateFareCommand>
     {
         public async Task Consume(ConsumeContext<CalculateFareCommand> context)
         {
