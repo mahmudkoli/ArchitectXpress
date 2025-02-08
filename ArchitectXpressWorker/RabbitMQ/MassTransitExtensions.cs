@@ -1,4 +1,5 @@
-﻿using ArchitectXpress.RabbitMQ;
+﻿using ArchitectXpress.Common.Publisher;
+using ArchitectXpress.RabbitMQ;
 using ArchitectXpressWorker.EventHandlers;
 using MassTransit;
 using Microsoft.Extensions.Options;

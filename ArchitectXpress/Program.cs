@@ -1,4 +1,5 @@
 using ArchitectXpress.Caching;
+using ArchitectXpress.Common.MessageBrokerSettings;
 using ArchitectXpress.Mongos;
 using ArchitectXpress.RabbitMQ;
 using MongoDB.Bson.Serialization.Conventions;

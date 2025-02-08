@@ -2,8 +2,8 @@ using System.Security;
 using System.Threading;
 using Archexpress.Demo.Passenger.Database;
 using ArchitectXpress.Caching;
+using ArchitectXpress.Common.Publisher;
 using ArchitectXpress.Mongos;
-using ArchitectXpress.RabbitMQ;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ArchitectXpress.Controllers

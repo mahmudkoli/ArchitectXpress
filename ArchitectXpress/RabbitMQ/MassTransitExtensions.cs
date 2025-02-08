@@ -1,4 +1,6 @@
 ﻿using Archexpress.Demo.Passenger.Database;
+using ArchitectXpress.Common.MessageBrokerSettings;
+using ArchitectXpress.Common.Publisher;
 using MassTransit;
 using Microsoft.Extensions.Options;
 

@@ -1,4 +1,4 @@
-﻿namespace ArchitectXpress.RabbitMQ;
+﻿namespace ArchitectXpress.Common.MessageBrokerSettings;
 
 public class RabbitMQSettings
 {
