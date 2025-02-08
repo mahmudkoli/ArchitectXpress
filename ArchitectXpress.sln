@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArchitectXpress", "Architec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectXpressWorker", "ArchitectXpressWorker\ArchitectXpressWorker.csproj", "{962B3157-FA7F-4AE8-8CFA-6F57E053879B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectXpress.Common", "ArchitectXpress.Common\ArchitectXpress.Common.csproj", "{761118B3-57FC-4A29-A9BF-984844941337}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{962B3157-FA7F-4AE8-8CFA-6F57E053879B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{962B3157-FA7F-4AE8-8CFA-6F57E053879B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{962B3157-FA7F-4AE8-8CFA-6F57E053879B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{761118B3-57FC-4A29-A9BF-984844941337}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{761118B3-57FC-4A29-A9BF-984844941337}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{761118B3-57FC-4A29-A9BF-984844941337}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{761118B3-57FC-4A29-A9BF-984844941337}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

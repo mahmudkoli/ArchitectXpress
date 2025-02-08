@@ -17,7 +17,7 @@ namespace ArchitectXpressWorker.EventHandlers
             var command = context.Message;
 
             // Fare calculation logic
-            decimal totalFare = CalculateFare(command.DistanceInKm, command.DurationInMinutes, command.SurgeMultiplier);
+            decimal totalFare = CalculateFare(command.DistanceInKm, command.DurationInMinutes);
 
             // Publish FareCalculatedEvent
             await context.Publish(new FareCalculatedEvent
@@ -29,7 +29,7 @@ namespace ArchitectXpressWorker.EventHandlers
             Console.WriteLine($"Fare calculated and event published for RideId={command.RideId}, TotalFare={totalFare}");
         }
 
-        private decimal CalculateFare(decimal distanceInKm, int durationInMinutes, decimal surgeMultiplier)
+        private decimal CalculateFare(decimal distanceInKm, int durationInMinutes)
         {
             const decimal BaseFare = 2.50m;
             const decimal CostPerKm = 1.25m;
@@ -39,7 +39,7 @@ namespace ArchitectXpressWorker.EventHandlers
 
             decimal distanceCost = distanceInKm * CostPerKm;
             decimal timeCost = durationInMinutes * CostPerMinute;
-            decimal totalFare = (BaseFare + distanceCost + timeCost + ServiceFee) * surgeMultiplier;
+            decimal totalFare = BaseFare + distanceCost + timeCost + ServiceFee;
 
             return Math.Max(totalFare, MinimumFare);
         }

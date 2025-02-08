@@ -10,6 +10,7 @@ namespace ArchitectXpressWorker.Models
     {
         public Guid RideId { get; set; }
         public decimal DistanceInKm { get; set; }
+        public int DurationInMinutes { get; set; }
     }
 
     public class FareCalculatedEvent
