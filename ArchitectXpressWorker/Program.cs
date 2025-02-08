@@ -1,3 +1,4 @@
+using ArchitectXpress.Common.MessageBrokerSettings;
 using ArchitectXpressWorker;
 using ArchitectXpressWorker.Mongos;
 using ArchitectXpressWorker.RabbitMQ;

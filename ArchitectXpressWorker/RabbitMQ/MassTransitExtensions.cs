@@ -1,6 +1,8 @@
-﻿using ArchitectXpress.Common.Publisher;
+﻿using ArchitectXpress.Common.MessageBrokerSettings;
+using ArchitectXpress.Common.Publisher;
 using ArchitectXpress.RabbitMQ;
 using ArchitectXpressWorker.EventHandlers;
+using ArchitectXpressWorker.Models;
 using MassTransit;
 using Microsoft.Extensions.Options;
 
@@ -16,6 +18,7 @@ public static class MassTransitExtensions
         {
             config.AddConsumer<PassengerAddedEventHandler>();
             config.AddConsumer<CalculateFareEventHandler>();
+            config.AddConsumer<FareCalculatedEventHandler>();
 
             config.UsingRabbitMq((ctx, cfg) =>
             {
@@ -25,20 +28,25 @@ public static class MassTransitExtensions
 
                 cfg.UseRawJsonSerializer(RawSerializerOptions.All, isDefault: true);
                 cfg.UseRawJsonDeserializer(RawSerializerOptions.All, isDefault: true);
-                cfg.Message<CalculateFareEventHandler>(e => e.SetEntityName(rabbitMqSettings.FareExchangeName));
+                cfg.Message<FareCalculatedEvent>(e => e.SetEntityName(rabbitMqSettings.FareCalculatedExchangeName));
 
                 cfg.ReceiveEndpoint(rabbitMqSettings.QueueName, e =>
                 {
                     e.ConfigureConsumeTopology = false;
                     e.Bind(rabbitMqSettings.ExchangeName);
                     e.ConfigureConsumer<PassengerAddedEventHandler>(ctx);
-                    e.ConfigureConsumer<CalculateFareEventHandler>(ctx);
                 });
-                cfg.ReceiveEndpoint(rabbitMqSettings.FareQueueName, e =>
+                cfg.ReceiveEndpoint(rabbitMqSettings.FareCalculationQueueName, e =>
                 {
                     e.ConfigureConsumeTopology = false;
-                    e.Bind(rabbitMqSettings.FareExchangeName);
+                    e.Bind(rabbitMqSettings.FareCalculationExchangeName);
                     e.ConfigureConsumer<CalculateFareEventHandler>(ctx);
+                });
+                cfg.ReceiveEndpoint(rabbitMqSettings.FareCalculatedQueueName, e =>
+                {
+                    e.ConfigureConsumeTopology = false;
+                    e.Bind(rabbitMqSettings.FareCalculatedExchangeName);
+                    e.ConfigureConsumer<FareCalculatedEventHandler>(ctx);
                 });
             });
             services.AddSingleton<IMessagePublisher, MessagePublisher>();
